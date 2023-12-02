@@ -20,9 +20,20 @@ function addBookToLibrary () {
     let userBook = new Book(userTitle, userAuthor, userReadStatus);
 
     myLibrary.push(userBook);
+
+    // Display the books in a table
+
+    let myTable = document.getElementById('mytable');
+    let myRow = myTable.insertRow(1);
+    let cell1 = myRow.insertCell(0);
+    let cell2 = myRow.insertCell(1);
+    let cell3 = myRow.insertCell(2);
+    cell1.innerHTML = userTitle;
+    cell2.innerHTML = userAuthor;
+    cell3.innerHTML = userReadStatus;
 }
 
-// Invoke the function
+// Invoke the function when button is clicked
 
 let addNewBookButton = document.querySelector('button');
 addNewBookButton.addEventListener('click', addBookToLibrary);
