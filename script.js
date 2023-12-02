@@ -24,4 +24,5 @@ function addBookToLibrary () {
 
 // Invoke the function
 
-addBookToLibrary();
+let addNewBookButton = document.querySelector('button');
+addNewBookButton.addEventListener('click', addBookToLibrary);
