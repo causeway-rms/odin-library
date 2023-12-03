@@ -13,12 +13,24 @@ function Book(title, author, readStatus) {
 // Take user inputs and push it to library
 
 function addBookToLibrary () {
-    let userTitle = prompt('Enter the book title');
-    let userAuthor = prompt('Enter the author name');
-    let userReadStatus = prompt('Enter the read status');
+    let userTitle = document.getElementById('user-title').value;
+    let userAuthor = document.getElementById('user-author').value;
+    let userReadStatus = getBookStatus();
+    
+    function getBookStatus() {
+        let bookStatus = document.getElementsByName('book-status');
+        let bookStatusValue;
+
+        for (let i=0; i<bookStatus.length; i++) {
+            if(bookStatus[i].checked){
+                bookStatusValue = bookStatus[i].value;
+                return (bookStatusValue);
+                break;
+            }
+        }
+    }
 
     let userBook = new Book(userTitle, userAuthor, userReadStatus);
-
     myLibrary.push(userBook);
 
     // Display the books in a table
@@ -35,5 +47,8 @@ function addBookToLibrary () {
 
 // Invoke the function when button is clicked
 
-let addNewBookButton = document.querySelector('button');
-addNewBookButton.addEventListener('click', addBookToLibrary);
+let addButton = document.getElementById('add');
+addButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    addBookToLibrary();
+});
