@@ -16,6 +16,26 @@
             <th>Status</td>
         </tr>
     </table>
+    <form>
+        <div>
+            <label for="user_title">Enter book title</label>
+            <input type="text" id="user_title">
+        </div>
+        <div>
+            <label for="user_author">Enter book title</label>
+            <input type="text" id="user_author">
+        </div>
+        <p>Select book status:</p>
+        <div>
+            <input type="radio" id="yet-to-read" name="book-status">
+            <label for="yet-to-read">Yet to Read</label>
+            <input type="radio" id="reading" name="book-status">
+            <label for="reading">Reading</label>
+            <input type="radio" id="read" name="book-status">
+            <label for="read">Read</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
     <script src="./script.js"></script>
 </body>
 </html>
