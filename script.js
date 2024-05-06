@@ -45,6 +45,17 @@ function addBookToLibrary () {
     cell3.innerHTML = userReadStatus;
 }
 
+function clearFields() {
+    document.getElementById('user-title').value = "";
+    document.getElementById('user-author').value = "";
+
+    let bookStatus = document.getElementsByName('book-status');
+
+    for(let i=0; i<bookStatus.length; i++) {
+        bookStatus[i].checked = false;
+    }
+}
+
 // Invoke the function when button is clicked
 
 let addButton = document.getElementById('add');
@@ -52,3 +63,11 @@ addButton.addEventListener('click', function(event) {
     event.preventDefault();
     addBookToLibrary();
 });
+
+// Clear the fields when clear button is clicked
+
+let clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    clearFields();
+})
